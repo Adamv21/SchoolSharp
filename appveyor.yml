@@ -1,6 +1,6 @@
 artifacts:
 - path: bin\$(configuration)\*.dll
-  name: *
+  name: '*'
 branches:
   only:
   - master
