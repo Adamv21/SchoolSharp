@@ -4,6 +4,3 @@ deploy:
     secure: oy2p5rftpq7t7srjzvzqk4j5gqwycnouzbmyfmjd43u3fm
   skip_symbols: false
   artifact: /.*\.nupkg/
-
-
-oy2p5rftpq7t7srjzvzqk4j5gqwycnouzbmyfmjd43u3fm
