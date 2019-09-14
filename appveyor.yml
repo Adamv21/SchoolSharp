@@ -1,8 +1,13 @@
 build:
   publish_nuget: true
 
+nuget:
+  account_feed: true
+  project_feed: true
+
 deploy:
   provider: NuGet
   api_key:
     secure: pK3CuJ5xUlPfOnwCZPvFoNPdU326+13zw9GHqrLKLldNNHfaMvST7cbgxRaMGHlS
   skip_symbols: false
+  artifact: /.*\.nupkg/
