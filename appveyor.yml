@@ -1,19 +1,15 @@
-version: 1.0.{build}
-build:
-  verbosity: minimal
-artifacts:
-- path: bin\Debug\netstandard2.0\*.dll
-  name: Nuget
-
+version: "1.0.0.{build}"
+image: Visual Studio 2019
 branches:
   only:
-  - master
-
-deploy:
-  provider: NuGet
-  api_key:
+    - master
+    - develop
+environment:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  NUGET_API_KEY:
     secure: pK3CuJ5xUlPfOnwCZPvFoNPdU326+13zw9GHqrLKLldNNHfaMvST7cbgxRaMGHlS
-  skip_symbols: false
-  artifact: /.*\.nupkg/
-  on:
-    branch: master
+build_script:
+- ps: .\build.ps1 --currentBranch=$env:APPVEYOR_REPO_BRANCH --nugetApiKey=$env:NUGET_API_KEY
+test: off #tests handled by cake script
+deploy: off #deploy handled by cake script
