@@ -4,3 +4,6 @@ deploy:
     secure: pK3CuJ5xUlPfOnwCZPvFoNPdU326+13zw9GHqrLKLldNNHfaMvST7cbgxRaMGHlS
   skip_symbols: false
   artifact: /.*\.nupkg/
+  artifacts:
+   - path: SchoolSharp.Abstractions/bin/debug/SchoolSharp.Abstractions.dll
+     name: SchoolSharp.Abstractions
