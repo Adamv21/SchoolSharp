@@ -2,7 +2,7 @@ build:
   publish_nuget: true
 
 nuget:
-  account_feed: true
+  account_feed: true
   project_feed: true
 
 deploy:
