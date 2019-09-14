@@ -1,6 +1,9 @@
 artifacts:
-- path: SchoolSharp.Abstractions/bin/debug/SchoolSharp.Abstractions.dll
+- path: SchoolSharp.Abstractions\bin\Debug\netstandard2.0\SchoolSharp.Abstractions.dll
   name: SchoolSharp.Abstractions
+branches:
+  only:
+  - master
 
 deploy:
   provider: NuGet
@@ -9,4 +12,4 @@ deploy:
   skip_symbols: false
   artifact: /.*\.nupkg/
   on:
-    brand: master
+    branch: master
