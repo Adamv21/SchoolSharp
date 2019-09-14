@@ -5,5 +5,5 @@ deploy:
   skip_symbols: false
   artifact: /.*\.nupkg/
   artifacts:
-   - path: SchoolSharp.Abstractions/bin/debug/SchoolSharp.Abstractions.dll
-     name: SchoolSharp.Abstractions
+    - path: SchoolSharp.Abstractions/bin/debug/SchoolSharp.Abstractions.dll
+      name: SchoolSharp.Abstractions
