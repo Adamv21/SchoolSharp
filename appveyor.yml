@@ -1,6 +1,6 @@
 artifacts:
-- path: SchoolSharp.Abstractions\bin\Debug\netstandard2.0\SchoolSharp.Abstractions.dll
-  name: SchoolSharp.Abstractions
+- path: bin\$(configuration)\*.dll
+  name: *
 branches:
   only:
   - master
