@@ -7,6 +7,6 @@ namespace SchoolSharp.Abstractions.Components
 {
     public interface IGeneralInfoComponent : IClientComponent
     {
-        Task<IEnumerable<IAnnouncment>> GetAnnouncments(int limit = 50);
+        Task<IEnumerable<IAnnouncement>> GetAnnouncmentsAsync(int limit = 50);
     }
 }

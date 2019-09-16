@@ -1,13 +1,12 @@
 ﻿using SchoolSharp.Abstractions.Components;
-using SchoolSharp.Abstractions.Components.GeneralInfo;
-using SchoolSharp.Common.Extensions;
+ using SchoolSharp.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SchoolSharp.Core.Components
 {
-    public class Announcement : BaseComponentInittiated, IAnnouncment
+    public class Announcement : BaseComponentInittiated, IAnnouncement
     {
         private Announcement(IClientComponent source, string title, string message, IDictionary<string, object> metadata) : base(source, metadata)
         {

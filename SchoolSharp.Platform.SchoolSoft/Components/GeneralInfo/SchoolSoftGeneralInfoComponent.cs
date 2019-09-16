@@ -1,6 +1,6 @@
 ﻿using SchoolSharp.Abstractions;
-using SchoolSharp.Abstractions.Components.GeneralInfo;
-using SchoolSharp.Core.Components.GeneralInfo;
+using SchoolSharp.Abstractions.Components;
+using SchoolSharp.Core.Components;
 using SchoolSharp.Core.Registrators;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace SchoolSharp.Platform.SchoolSoft.Components
         }
 
 
-        public async override Task<IEnumerable<IAnnouncment>> GetAnnouncments(int limit)
+        public async override Task<IEnumerable<IAnnouncement>> GetAnnouncmentsAsync(int limit)
         {
             throw new NotImplementedException();
         }

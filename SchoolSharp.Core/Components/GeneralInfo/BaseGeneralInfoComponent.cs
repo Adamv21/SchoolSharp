@@ -1,6 +1,5 @@
 ﻿using SchoolSharp.Abstractions;
 using SchoolSharp.Abstractions.Components;
-using SchoolSharp.Abstractions.Components.GeneralInfo;
 using SchoolSharp.Core.Registrators;
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,6 @@ namespace SchoolSharp.Core.Components
         }
         public override string Name => nameof(IGeneralInfoComponent);
 
-        public abstract Task<IEnumerable<IAnnouncment>> GetAnnouncments(int limit);
+        public abstract Task<IEnumerable<IAnnouncement>> GetAnnouncmentsAsync(int limit);
     }
 }
