@@ -7,18 +7,12 @@ using System.Text;
 
 namespace SchoolSharp.Core.Components
 {
-    public abstract class BaseClientComponent<TClient> : IClientComponent 
-        where TClient : ISchoolPlatformClient
+    public abstract class BaseClientComponent : IClientComponent 
     {
-        protected BaseClientComponent(TClient client)
+        protected BaseClientComponent()
         {
-            client.GuardNotNull(nameof(client));
-            this.SchoolClient = client;
         }
 
-        public ISchoolPlatformClient Client => SchoolClient;
-
-        public TClient SchoolClient { get; }
 
         public abstract string Name { get; }
     }

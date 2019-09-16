@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 namespace SchoolSharp.Core.Components
 {
     [AutoRegisterComponent(typeof(ILoginComponent))]
-    public abstract class BaseLoginComponent<TClient> : BaseClientComponent<TClient>, ILoginComponent
-        where TClient : ISchoolPlatformClient
+    public abstract class BaseLoginComponent : BaseClientComponent, ILoginComponent
     {
-        protected BaseLoginComponent(TClient client) : base(client)
+        protected BaseLoginComponent()
         {
 
         }

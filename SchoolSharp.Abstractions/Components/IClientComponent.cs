@@ -9,7 +9,6 @@ namespace SchoolSharp.Abstractions.Components
     public interface IClientComponent
     {
         string Name { get; }
-        ISchoolPlatformClient Client { get; }
     }
 
 }

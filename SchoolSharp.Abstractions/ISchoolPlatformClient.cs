@@ -11,6 +11,7 @@ namespace SchoolSharp.Abstractions
 
         IGeneralInfoComponent GeneralInfoComponent { get; }
 
-        TComponent GetComponent<TComponent>() where TComponent : IClientComponent;
+        IScheduleComponent ScheduleComponent { get; }
+        TComponent GetComponent<TComponent>();
     }
 }

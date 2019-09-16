@@ -1,7 +1,8 @@
-﻿using SchoolSharp.Abstractions;
+﻿using Autofac;
+using SchoolSharp.Abstractions;
 using SchoolSharp.Abstractions.Components;
-using SchoolSharp.Abstractions.Components.GeneralInfo;
 using SchoolSharp.Abstractions.Exceptions;
+using SchoolSharp.Abstractions.Registrators;
 using SchoolSharp.Common.Extensions;
 using SchoolSharp.Core.Registrators;
 using System;
@@ -14,39 +15,37 @@ namespace SchoolSharp.Core
 
     public abstract class BaseSchoolPlatformClient : ISchoolPlatformClient
     {
-        public BaseSchoolPlatformClient(UserCrededentials userCrededentials, IComponentRegistrator registrator)
+        public BaseSchoolPlatformClient(UserCrededentials userCrededentials)
         {
 
-            registrator.GuardNotNull(nameof(registrator));
-
             this.Crededentials = userCrededentials;
+        }
 
-            var findings = registrator.GatherFittings(this);
+        public IContainer Container { get; private set; }
 
-            foreach(var finding in findings)
-            {
-                Components.Add(finding.InterfaceType, (IClientComponent)Activator.CreateInstance(finding.ImplementationType, this));
-            }
+        public UserCrededentials Crededentials { get; }
+        public IGeneralInfoComponent GeneralInfoComponent => Container.Resolve<IGeneralInfoComponent>();
 
-            generalInfoLoader = new SchoolPlatformLazyLoader<IGeneralInfoComponent>(this);
+        public IScheduleComponent ScheduleComponent => Container.Resolve<IScheduleComponent>();
+
+        protected void BuildContainer(params IComponentRegistrator[] registrators)
+        {
+            if (Container != null)
+                throw new Exception("Already initiated!");
+
+            var builder = new ContainerBuilder();
+            registrators.GuardNotNull(nameof(registrators));
+
+            foreach (var registrator in registrators)
+                registrator.Register(builder);
+
+            Container = builder.Build();
 
         }
 
-        public IDictionary<Type, IClientComponent> Components { get; } = new Dictionary<Type, IClientComponent>();
-
-        public IGeneralInfoComponent GeneralInfoComponent => generalInfoLoader.Value;
-
-        public UserCrededentials Crededentials { get; }
-        IGeneralInfoComponent ISchoolPlatformClient.GeneralInfoComponent { get; }
-
-        private SchoolPlatformLazyLoader<IGeneralInfoComponent> generalInfoLoader;
-
-        public TComponent GetComponent<TComponent>() where TComponent : IClientComponent
+        public TComponent GetComponent<TComponent>()
         {
-            if (!Components.TryGetValue(typeof(TComponent), out var value))
-                throw new ComponentNotRegistredException(typeof(TComponent));
-
-            return (TComponent)value;
+            return Container.Resolve<TComponent>();
         }
     }
 }

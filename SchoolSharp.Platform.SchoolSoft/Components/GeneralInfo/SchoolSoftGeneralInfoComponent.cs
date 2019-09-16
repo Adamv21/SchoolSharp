@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace SchoolSharp.Platform.SchoolSoft.Components
 {   
-    public class SchoolSoftGeneralInfoComponent : BaseGeneralInfoComponent<SchoolSoftSchoolPlatformClient>
+    public class SchoolSoftGeneralInfoComponent : BaseGeneralInfoComponent
     {
-        public SchoolSoftGeneralInfoComponent(SchoolSoftSchoolPlatformClient client) : base(client)
+        public SchoolSoftGeneralInfoComponent()
         {
         }
 

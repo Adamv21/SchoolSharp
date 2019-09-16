@@ -1,6 +1,7 @@
 ﻿using SchoolSharp.Abstractions;
 using SchoolSharp.Core;
 using SchoolSharp.Core.Registrators;
+using SchoolSharp.Platform.SchoolSoft.Builders;
 using SchoolSharp.Platform.SchoolSoft.HttpMessageHandlers;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,13 @@ namespace SchoolSharp.Platform.SchoolSoft
 {
     public class SchoolSoftSchoolPlatformClient : BaseSchoolPlatformClient
     {
-        public SchoolSoftSchoolPlatformClient(UserCrededentials userCrededentials, IComponentRegistrator registrator) : base(userCrededentials, registrator)
+        public SchoolSoftSchoolPlatformClient(UserCrededentials userCrededentials) : base(userCrededentials)
         {
-            Navigator = new HttpClient(new SchoolsoftUserStateCheckMessageHandler(this));
-        }
+            var assemblyBuilder = new AssemblyComponentRegistrator(typeof(SchoolSoftSchoolPlatformClient).Assembly); //Registers all componenets etc
+            var navigatorRegistrator = new InstanceComponentRegistrator<HttpClient>(new SchoolSoftNavigatorBuilder(this)); //Register http client navigator
 
-        public HttpClient Navigator { get; }
+            BuildContainer(assemblyBuilder, navigatorRegistrator);
+        }
 
         public string BaseUrl => $"https://sms1.schoolsoft.se/{Crededentials.School}/jsp";
     }

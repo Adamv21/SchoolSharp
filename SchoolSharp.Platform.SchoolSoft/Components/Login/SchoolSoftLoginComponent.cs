@@ -9,21 +9,20 @@ using System.Threading.Tasks;
 
 namespace SchoolSharp.Platform.SchoolSoft.Components
 {
-    public class SchoolSoftLoginComponent : BaseLoginComponent<SchoolSoftSchoolPlatformClient>
+    public class SchoolSoftLoginComponent : BaseLoginComponent
     {
-        public SchoolSoftLoginComponent(SchoolSoftSchoolPlatformClient client) : base(client)
+        private readonly HttpClient navigator;
+        public SchoolSoftLoginComponent(HttpClient navigator)
         {
-
+            this.navigator = navigator;
         }
 
         
         public override async Task<LoginResult> LoginAsync(UserCrededentials crededentials)
         {
-            string templateUrl = $"{SchoolClient.BaseUrl}/Login.jsp";
+            const string route = "/Login.jsp";
 
-            string url = string.Format(templateUrl, crededentials.School);
-
-            var result = await SchoolClient.Navigator.PostAsync(url, new FormUrlEncodedContent(new Dictionary<string, string>()
+            var result = await navigator.PostAsync(route, new FormUrlEncodedContent(new Dictionary<string, string>()
             {
                 { "action", "login" },
                 { "usertype", crededentials.AccountType },

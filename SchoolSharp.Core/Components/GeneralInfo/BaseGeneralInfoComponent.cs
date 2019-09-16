@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace SchoolSharp.Core.Components
 {
     [AutoRegisterComponent(typeof(IGeneralInfoComponent))]
-    public abstract class BaseGeneralInfoComponent<TClient> : BaseClientComponent<TClient>, IGeneralInfoComponent where TClient : ISchoolPlatformClient
+    public abstract class BaseGeneralInfoComponent : BaseClientComponent, IGeneralInfoComponent
     {
-        protected BaseGeneralInfoComponent(TClient client) : base(client)
+        protected BaseGeneralInfoComponent()
         {
 
         }
