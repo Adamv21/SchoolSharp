@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		appveyor.yml = appveyor.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSharp.Platform.SchoolSoft", "SchoolSharp.Platform.SchoolSoft\SchoolSharp.Platform.SchoolSoft.csproj", "{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,9 +36,16 @@ Global
 		{A8D4D498-98D0-414E-9545-643A132D3F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D4D498-98D0-414E-9545-643A132D3F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D4D498-98D0-414E-9545-643A132D3F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86A0F6A9-57A9-4EE1-B539-871F5D7DB5CC} = {92ED5AB0-BEFF-4CFF-B5E2-CC0CC5877571}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F11A5636-A349-4DA0-A957-C5D1847992FA}

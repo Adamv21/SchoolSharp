@@ -1,6 +1,7 @@
 ﻿using SchoolSharp.Abstractions;
+using SchoolSharp.Abstractions.Components;
+using SchoolSharp.Abstractions.Components.GeneralInfo;
 using SchoolSharp.Abstractions.Exceptions;
-using SchoolSharp.Abstractions.Modules;
 using SchoolSharp.Common.Extensions;
 using SchoolSharp.Core.Registrators;
 using System;
@@ -11,12 +12,14 @@ namespace SchoolSharp.Core
 {
 
 
-    public class SchoolPlatformClient : ISchoolPlatformClient
+    public abstract class BaseSchoolPlatformClient : ISchoolPlatformClient
     {
-        public SchoolPlatformClient(IComponentRegistrator registrator)
+        public BaseSchoolPlatformClient(UserCrededentials userCrededentials, IComponentRegistrator registrator)
         {
 
             registrator.GuardNotNull(nameof(registrator));
+
+            this.Crededentials = userCrededentials;
 
             var findings = registrator.GatherFittings(this);
 
@@ -33,7 +36,8 @@ namespace SchoolSharp.Core
 
         public IGeneralInfoComponent GeneralInfoComponent => generalInfoLoader.Value;
 
-
+        public UserCrededentials Crededentials { get; }
+        IGeneralInfoComponent ISchoolPlatformClient.GeneralInfoComponent { get; }
 
         private SchoolPlatformLazyLoader<IGeneralInfoComponent> generalInfoLoader;
 
