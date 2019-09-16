@@ -1,6 +1,6 @@
 ﻿using SchoolSharp.Abstractions;
-using SchoolSharp.Abstractions.Components.Login;
-using SchoolSharp.Core.Components.Login;
+using SchoolSharp.Abstractions.Components;
+using SchoolSharp.Core.Components;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

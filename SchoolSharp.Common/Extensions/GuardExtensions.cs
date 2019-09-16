@@ -6,15 +6,17 @@ namespace SchoolSharp.Common.Extensions
 {
     public static class GuardExtensions
     {
-        public static void GuardNotNull(this object @object, string name)
+
+        public static T GuardNotNull<T>(this T source, string name)
         {
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
 
-            if (@object == null)
+            if (source == null)
                 throw new ArgumentNullException(name);
 
-
+            GuardNotNull(source, name);
+            return source;
         }
     }
 }

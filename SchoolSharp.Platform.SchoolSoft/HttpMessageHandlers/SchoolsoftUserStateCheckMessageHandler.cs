@@ -1,4 +1,4 @@
-﻿using SchoolSharp.Abstractions.Components.Login;
+﻿using SchoolSharp.Abstractions.Components;
 using SchoolSharp.Abstractions.Exceptions;
 using System;
 using System.Collections.Generic;

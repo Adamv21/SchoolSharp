@@ -1,4 +1,5 @@
-﻿using SchoolSharp.Abstractions.Components;
+﻿using JetBrains.Annotations;
+using SchoolSharp.Abstractions.Components;
  using SchoolSharp.Common.Extensions;
 using System;
 using System.Collections.Generic;
@@ -8,19 +9,20 @@ namespace SchoolSharp.Core.Components
 {
     public class Announcement : BaseComponentInittiated, IAnnouncement
     {
-        private Announcement(IClientComponent source, string title, string message, IDictionary<string, object> metadata) : base(source, metadata)
+        private Announcement(IClientComponent source, IDictionary<string, object> metadata) : base(source, metadata)
         {
-            title.GuardNotNull(nameof(title));
-            message.GuardNotNull(nameof(message));
-
-            this.Title = title;
-            this.Message = message;
         }
-        public string Title { get; }
-        public string Message { get; }
-        
-        public static Announcement Build(IClientComponent source, string title, string message, IDictionary<string, object> metadata) 
-            => new Announcement(source, title, message, metadata);
+        public string Title => (string)Metadata.GetOrDefault(nameof(Title));
+        public string Message => (string)Metadata.GetOrDefault(nameof(Message));
+
+        public static Announcement Build(IClientComponent source, IDictionary<string, object> metadata,
+            [NotNull] string title, [NotNull] string message)
+        {
+            metadata.AddOrReplace(nameof(Title), title.GuardNotNull(nameof(Title)));
+            metadata.AddOrReplace(nameof(Message), message.GuardNotNull(nameof(message)));
+
+            return new Announcement(source, metadata);
+        }
         
     }
 }

@@ -1,5 +1,4 @@
 ﻿using SchoolSharp.Abstractions;
-using SchoolSharp.Abstractions.Modules;
 using SchoolSharp.Common.Extensions;
 using System;
 using System.Collections.Generic;

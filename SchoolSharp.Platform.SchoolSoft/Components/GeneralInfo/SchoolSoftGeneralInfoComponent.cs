@@ -17,7 +17,7 @@ namespace SchoolSharp.Platform.SchoolSoft.Components
         }
 
 
-        public async override Task<IEnumerable<IAnnouncement>> GetAnnouncmentsAsync(int limit)
+        public override Task<IEnumerable<IAnnouncement>> GetAnnouncmentsAsync(int limit)
         {
             throw new NotImplementedException();
         }

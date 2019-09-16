@@ -10,10 +10,8 @@ namespace SchoolSharp.Core.Components
     {
         protected BaseComponentInittiated(IClientComponent source, IDictionary<string, object> metadata)
         {
-            source.GuardNotNull(nameof(source));
-            metadata.GuardNotNull(nameof(metadata));
-            this.Source = source;
-            this.Metadata = metadata;
+            this.Source = source.GuardNotNull(nameof(source));
+            this.Metadata = metadata.GuardNotNull(nameof(metadata));
         }
 
         public IClientComponent Source { get; }
