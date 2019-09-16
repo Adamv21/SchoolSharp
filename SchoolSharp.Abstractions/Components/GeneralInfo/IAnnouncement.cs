@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SchoolSharp.Abstractions.Components.GeneralInfo
+namespace SchoolSharp.Abstractions.Components
 {
     public interface IAnnouncment : IComponentInittiated
     {

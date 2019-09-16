@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchoolSharp.Platform.SchoolSoft.Components.Login
+namespace SchoolSharp.Platform.SchoolSoft.Components
 {
     public class SchoolSoftLoginComponent : BaseLoginComponent<SchoolSoftSchoolPlatformClient>
     {

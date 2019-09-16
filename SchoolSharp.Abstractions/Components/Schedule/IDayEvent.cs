@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SchoolSharp.Abstractions.Components.Schedule
+namespace SchoolSharp.Abstractions.Components
 {
     public interface IDayEvent : IComponentInittiated
     {

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchoolSharp.Core.Components.GeneralInfo
+namespace SchoolSharp.Core.Components
 {
     [AutoRegisterComponent(typeof(IGeneralInfoComponent))]
     public abstract class BaseGeneralInfoComponent<TClient> : BaseClientComponent<TClient>, IGeneralInfoComponent where TClient : ISchoolPlatformClient

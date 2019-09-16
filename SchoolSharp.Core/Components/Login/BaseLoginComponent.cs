@@ -1,13 +1,12 @@
 ﻿using SchoolSharp.Abstractions;
 using SchoolSharp.Abstractions.Components;
-using SchoolSharp.Abstractions.Components.Login;
 using SchoolSharp.Core.Registrators;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchoolSharp.Core.Components.Login
+namespace SchoolSharp.Core.Components
 {
     [AutoRegisterComponent(typeof(ILoginComponent))]
     public abstract class BaseLoginComponent<TClient> : BaseClientComponent<TClient>, ILoginComponent

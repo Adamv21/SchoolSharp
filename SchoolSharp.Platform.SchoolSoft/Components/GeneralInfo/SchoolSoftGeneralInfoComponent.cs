@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchoolSharp.Platform.SchoolSoft.Components.GeneralInfo
+namespace SchoolSharp.Platform.SchoolSoft.Components
 {   
     public class SchoolSoftGeneralInfoComponent : BaseGeneralInfoComponent<SchoolSoftSchoolPlatformClient>
     {

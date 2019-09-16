@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SchoolSharp.Core.Components.GeneralInfo
+namespace SchoolSharp.Core.Components
 {
     public class Announcement : BaseComponentInittiated, IAnnouncment
     {
