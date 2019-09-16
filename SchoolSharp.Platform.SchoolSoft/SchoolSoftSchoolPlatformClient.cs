@@ -17,5 +17,7 @@ namespace SchoolSharp.Platform.SchoolSoft
         }
 
         public HttpClient Navigator { get; }
+
+        public string BaseUrl => $"https://sms1.schoolsoft.se/{Crededentials.School}/jsp";
     }
 }

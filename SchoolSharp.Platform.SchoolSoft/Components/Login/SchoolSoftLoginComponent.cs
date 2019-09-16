@@ -19,7 +19,8 @@ namespace SchoolSharp.Platform.SchoolSoft.Components
         
         public override async Task<LoginResult> LoginAsync(UserCrededentials crededentials)
         {
-            const string templateUrl = "https://sms1.schoolsoft.se/{0}/jsp/Login.jsp";
+            string templateUrl = $"{SchoolClient.BaseUrl}/Login.jsp";
+
             string url = string.Format(templateUrl, crededentials.School);
 
             var result = await SchoolClient.Navigator.PostAsync(url, new FormUrlEncodedContent(new Dictionary<string, string>()

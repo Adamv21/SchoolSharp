@@ -14,6 +14,8 @@ namespace SchoolSharp.Core.Components
 
         }
 
+        public override string Name => nameof(IScheduleComponent);
+
         public abstract Task<IWeekSchedule> GetWeekScheduleAsync(byte week, ushort? term = null);
     }
 }

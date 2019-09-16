@@ -14,15 +14,13 @@ namespace SchoolSharp.Core.Components
 
         }
 
-        public ushort Term => (ushort)Metadata.GetOrDefault(nameof(Term));
         public byte Week => (byte)Metadata.GetOrDefault(nameof(Week));
         public IEnumerable<IDaySchedule> Days => (IEnumerable<IDaySchedule>)Metadata.GetOrDefault(nameof(Days));
 
 
         public static WeekSchedule Build([NotNull] IClientComponent clientComponent, [NotNull] IDictionary<string, object> metadata,
-            ushort term, byte week, [NotNull] IEnumerable<IDaySchedule> days)
+            byte week, [NotNull] IEnumerable<IDaySchedule> days)
         {
-            metadata.AddOrReplace(nameof(Term), term);
             metadata.AddOrReplace(nameof(Week), week);
             metadata.AddOrReplace(nameof(Days), days.GuardNotNull(nameof(Days)));
 
